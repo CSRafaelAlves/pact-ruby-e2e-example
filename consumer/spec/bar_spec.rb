@@ -13,10 +13,21 @@ describe "BarClient", :pact => true do
       will_respond_with({
       status: 200,
       headers: { 'Content-Type' => 'application/json' },
-      body: {
-        company: Pact.like("My big company"),
-        factories: Pact.each_like(location: "Sydney", capacity: 5)
-      }
+      body:
+      {
+  "id": Pact.like(0),
+  "secUserToken": Pact.like("string"),
+  "profile": {
+    "name": Pact.like("string"),
+    "userType": Pact.like("string"),
+    "preRegister": Pact.like(true)
+  }
+}
+      # {
+      #   id: Pact.like(0),
+      #   factories: Pact.each_like(location: "Sydney", capacity: 5)
+      # }
+
     })
 
     # This request would normally be performed some BarClient class,

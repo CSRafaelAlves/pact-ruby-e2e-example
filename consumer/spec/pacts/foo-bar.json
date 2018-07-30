@@ -21,22 +21,28 @@
           "Content-Type": "application/json"
         },
         "body": {
-          "company": "My big company",
-          "factories": [
-            {
-              "location": "Sydney",
-              "capacity": 5
-            }
-          ]
+          "id": 0,
+          "secUserToken": "string",
+          "profile": {
+            "name": "string",
+            "userType": "string",
+            "preRegister": true
+          }
         },
         "matchingRules": {
-          "$.body.company": {
+          "$.body.id": {
             "match": "type"
           },
-          "$.body.factories": {
-            "min": 1
+          "$.body.secUserToken": {
+            "match": "type"
           },
-          "$.body.factories[*].*": {
+          "$.body.profile.name": {
+            "match": "type"
+          },
+          "$.body.profile.userType": {
+            "match": "type"
+          },
+          "$.body.profile.preRegister": {
             "match": "type"
           }
         }
